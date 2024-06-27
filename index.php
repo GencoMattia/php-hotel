@@ -17,25 +17,27 @@ require_once __DIR__ . "/utilities/hotel-list.php";
 <body>
     <main>
         <section class="hotel-container">
-            <?php foreach($hotels as $hotel) { ?>
-                <article class="hotel-card">
-                    <h2>
-                        <?php echo $hotel["name"] ?>
-                    </h2>
-                    <h3>
-                        <?php echo $hotel["description"] ?>
-                    </h3>
-                    <p>
-                        Parcheggio: <?php echo $hotel["parking"] === true ? "Si" : "No" ?>
-                    </p>
-                    <p>
-                        <?php echo $hotel["vote"] ?> Stelle
-                    </p>
-                    <p>
-                        Distanza dal centro: <?php echo $hotel["distance_to_center"] ?> Km
-                    </p>
-                </article>
-            <?php } ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($hotels as $hotel) { ?>
+                        <tr>
+                            <th scope="row"><?php echo $hotel["name"] ?></th>
+                            <td><?php echo $hotel["description"] ?></td>
+                            <td>Parcheggio: <?php echo $hotel["parking"] === true ? "Si" : "No" ?></td>
+                            <td><?php echo $hotel["vote"] ?> Stelle</td>
+                            <td>Distanza dal centro: <?php echo $hotel["distance_to_center"] ?> Km</td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </section>
     </main>
 
