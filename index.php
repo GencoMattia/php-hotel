@@ -72,6 +72,11 @@ foreach($hotels as $hotel) {
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                    <?php if(empty($filteredHotels)) { ?>
+                        <tr>
+                            <td colspan="5">Nessun hotel trovato corrispondente ai filtri.</td>
+                        </tr>
+                    <?php } ?>
                     <?php foreach($filteredHotels as $hotel) { ?>
                         <tr>
                             <th scope="row"><?php echo $hotel["name"] ?></th>
