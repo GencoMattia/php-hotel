@@ -11,15 +11,19 @@ $filteredHotels = [];
 
 foreach($hotels as $hotel) {
     if($parkingCheck) {
-        $filteredHotels[] = $hotel;
+        if($hotel["parking"]) {
+            $filteredHotels[] = $hotel;
+        }
     } elseif ($starsFilter) {
         if ($hotel["vote"] >= $starsFilter) {
             $filteredHotels [] = $hotel;
         }
     } elseif ($parkingCheck && $starsFilter) {
-        if ($hotel["vote"] >= $starsFilter && $parkingCheck) {
+        if ($hotel["vote"] >= $starsFilter && $hotel["parking"]) {
             $filteredHotels [] = $hotel;
         }
+    } else {
+        $filteredHotels = $hotels;
     }
 };
 
@@ -48,7 +52,7 @@ foreach($hotels as $hotel) {
                     </select>
                 </div>
                 <div class="form-check col-3 d-flex align-items-center">
-                    <input type="checkbox" class="form-check-input me-2" id="parkingCheck" name="parkingCheck">
+                    <input type="checkbox" class="form-check-input me-2" id="parkingCheck" name="parkingCheck" <?php echo $parkingCheck ? "checked" : "" ?>>
                     <label class="form-check-label" for="exampleCheck1">Parcheggio</label>
                 </div>
                 <div class="button-container col-2">
@@ -68,7 +72,7 @@ foreach($hotels as $hotel) {
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <?php foreach($hotels as $hotel) { ?>
+                    <?php foreach($filteredHotels as $hotel) { ?>
                         <tr>
                             <th scope="row"><?php echo $hotel["name"] ?></th>
                             <td><?php echo $hotel["description"] ?></td>
