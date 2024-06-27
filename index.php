@@ -10,17 +10,17 @@ $parkingCheck = isset($_GET["parkingCheck"]) ? $_GET["parkingCheck"] : null;
 $filteredHotels = [];
 
 foreach($hotels as $hotel) {
-    if($parkingCheck) {
-        if($hotel["parking"]) {
-            $filteredHotels[] = $hotel;
+    if ($parkingCheck && $starsFilter) {
+        if (($hotel["vote"] >= $starsFilter) && $hotel["parking"]) {
+            $filteredHotels [] = $hotel;
         }
     } elseif ($starsFilter) {
         if ($hotel["vote"] >= $starsFilter) {
             $filteredHotels [] = $hotel;
         }
-    } elseif ($parkingCheck && $starsFilter) {
-        if ($hotel["vote"] >= $starsFilter && $hotel["parking"]) {
-            $filteredHotels [] = $hotel;
+    } elseif($parkingCheck) {
+        if($hotel["parking"]) {
+            $filteredHotels[] = $hotel;
         }
     } else {
         $filteredHotels = $hotels;
@@ -45,13 +45,10 @@ foreach($hotels as $hotel) {
             <form class="row mb-3 align-items-center" action="./index.php" method="GET">
                 <div class="select-container col-3">
                     <select class="form-select" aria-label="Default select example" name="starsFilter">
-                        <option selected>Selezione la Valutazione</option>
-                        <option value="0">Tutti</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+                        <option <?php echo !$starsFilter ? "selected" : "" ?> value="0">Selezione la Valutazione</option>
+                        <?php for ($i = 1; $i <= 5; $i++): ?> 
+                            <option <?php echo ($starsFilter == $i) ? "selected" : "" ?> value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
                     </select>
                 </div>
                 <div class="form-check col-3 d-flex align-items-center">
