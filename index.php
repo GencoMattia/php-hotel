@@ -19,6 +19,18 @@ require_once __DIR__ . "/utilities/hotel-list.php";
                     <h2>
                         <?php echo $hotel["name"] ?>
                     </h2>
+                    <h3>
+                        <?php echo $hotel["description"] ?>
+                    </h3>
+                    <p>
+                        Parcheggio: <?php echo $hotel["parking"] === true ? "Si" : "No" ?>
+                    </p>
+                    <p>
+                        <?php echo $hotel["vote"] ?> Stelle
+                    </p>
+                    <p>
+                        Distanza dal centro: <?php echo $hotel["distance_to_center"] ?> Km
+                    </p>
                 </article>
             <?php } ?>
         </section>
