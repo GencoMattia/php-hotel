@@ -16,8 +16,8 @@ require_once __DIR__ . "/utilities/hotel-list.php";
 </head>
 <body>
     <main>
-        <section class="hotel-container">
-            <table class="table">
+        <section class="hotel-container container">
+            <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Hotel</th>
@@ -27,7 +27,7 @@ require_once __DIR__ . "/utilities/hotel-list.php";
                         <th scope="col">Distanza dal Centro</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-group-divider">
                     <?php foreach($hotels as $hotel) { ?>
                         <tr>
                             <th scope="row"><?php echo $hotel["name"] ?></th>
