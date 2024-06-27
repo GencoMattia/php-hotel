@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/utilities/hotel-list.php";
 
-$starsFilter = isset($_GET['starsFilter']) ? $_GET['starsFilter'] : null;
+$starsFilter = isset($_GET['starsFilter']) ? $_GET['starsFilter'] : 0;
 $parkingCheck = isset($_GET["parkingCheck"]) ? $_GET["parkingCheck"] : null;
 
 
@@ -46,9 +46,12 @@ foreach($hotels as $hotel) {
                 <div class="select-container col-3">
                     <select class="form-select" aria-label="Default select example" name="starsFilter">
                         <option selected>Selezione la Valutazione</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="0">Tutti</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="form-check col-3 d-flex align-items-center">
