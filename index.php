@@ -16,6 +16,19 @@ require_once __DIR__ . "/utilities/hotel-list.php";
 </head>
 <body>
     <main>
+        <section class="container filters">
+            <form>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
         <section class="hotel-container container">
             <table class="table table-striped table-hover table-bordered">
                 <thead>
