@@ -20,10 +20,11 @@ require_once __DIR__ . "/utilities/hotel-list.php";
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Hotel</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">Parcheggio</th>
+                        <th scope="col">Valutazione</th>
+                        <th scope="col">Distanza dal Centro</th>
                     </tr>
                 </thead>
                 <tbody>
