@@ -2,6 +2,17 @@
 
 require_once __DIR__ . "/utilities/hotel-list.php";
 
+$starsFilter = isset($_GET['starsFilter']) ? $_GET['starsFilter'] : null;
+$parkingCheck = isset($_GET["parkingCheck"]) ? $_GET["parkingCheck"] : null;
+
+
+
+$filteredHotels = [];
+
+foreach($hotels as $hotel) {
+
+};
+
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +28,18 @@ require_once __DIR__ . "/utilities/hotel-list.php";
 <body>
     <main>
         <section class="container filters pt-5">
-            <form class="row mb-3">
+            <form class="row mb-3 align-items-center" action="./index.php" method="GET">
                 <div class="select-container col-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
+                    <select class="form-select" aria-label="Default select example" name="starsFilter">
+                        <option selected>Selezione la Valutazione</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
                 </div>
-                <div class="mb-3 form-check col-3">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-check col-3 d-flex align-items-center">
+                    <input type="checkbox" class="form-check-input me-2" id="parkingCheck" name="parkingCheck">
+                    <label class="form-check-label" for="exampleCheck1">Parcheggio</label>
                 </div>
                 <div class="button-container col-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
