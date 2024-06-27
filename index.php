@@ -10,7 +10,17 @@ $parkingCheck = isset($_GET["parkingCheck"]) ? $_GET["parkingCheck"] : null;
 $filteredHotels = [];
 
 foreach($hotels as $hotel) {
-
+    if($parkingCheck) {
+        $filteredHotels[] = $hotel;
+    } elseif ($starsFilter) {
+        if ($hotel["vote"] >= $starsFilter) {
+            $filteredHotels [] = $hotel;
+        }
+    } elseif ($parkingCheck && $starsFilter) {
+        if ($hotel["vote"] >= $starsFilter && $parkingCheck) {
+            $filteredHotels [] = $hotel;
+        }
+    }
 };
 
 ?>
